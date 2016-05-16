@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>HDA IM  by cryptofuture</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>HDA IM </h1>
+        <p>xmpp, jabber, xmpp server, jabber server, secure xmpp server, jabber server with forward secrecy</p>
+
+        <p class="view"><a href="https://github.com/cryptofuture/xmpp-im-hda">View the Project on GitHub <small>cryptofuture/xmpp-im-hda</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/cryptofuture/xmpp-im-hda/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/cryptofuture/xmpp-im-hda/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/cryptofuture/xmpp-im-hda">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h6>
+<a id="xmpp-server-with-full-forward-secrecy" class="anchor" href="#xmpp-server-with-full-forward-secrecy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>XMPP server with full Forward secrecy</h6>
+
+<p>I actually run two jabber servers. One on hda.me and one on <a href="http://www.hda.me">www.hda.me</a>. But both share same database.<br>
+This means all contacts you add on hda.me or <a href="http://www.hda.me">www.hda.me</a> will be shared between servers and you can login using the same user credentials.</p>
+
+<p>First server use 4096 bit dhparam and support only strong ciphers with Forward Secrecy. Second server use 2048 bit dhparam, FS and strong ciphers still preferable, but this server can communicate without FS, but with strong enough ciphers, and this makes second server s2s (server-to-server) compatible  with 90%+ xmmp servers in internet.
+Overall: I recommend use first server, but if you have problem with communication with 3rd party xmmp server, you can use second one.</p>
+
+<blockquote>
+<p>Note: Really old clients (no SSLv3 or SSLv2 support on both servers) or some java clients (old java incompatible with DH parameters larger than 1024 bits) may not work with HDA XMMP server.</p>
+</blockquote>
+
+<h4>
+<a id="technical-information" class="anchor" href="#technical-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Technical information</h4>
+
+<p>hda.me</p>
+
+<table>
+<thead>
+<tr>
+<th>Cipher suites</th>
+<th>Bitsize</th>
+<th>Forward secrecy</th>
+<th>Curve/dhparam size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECDHE-RSA-AES256-GCM-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES256-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES256-SHA</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>DHE-RSA-AES256-GCM-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>dhparam 4096</td>
+</tr>
+<tr>
+<td>DHE-RSA-AES256-SHA256</td>
+<td>256</td>
+<td>Yes</td>
+<td>dhparam 4096</td>
+</tr>
+<tr>
+<td>DHE-RSA-AES256-SHA</td>
+<td>256</td>
+<td>Yes</td>
+<td>dhparam 4096</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Protocols supported</strong>: TLSv1.1 TLSv1.2  </p>
+
+<ol>
+<li>
+<p><a href="http://www.hda.me">www.hda.me</a></p>
+
+<table>
+<thead>
+<tr>
+<th>Cipher suites</th>
+<th>Bitsize</th>
+<th>Forward secrecy</th>
+<th>Curve/dhparam size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DHE-RSA-AES256-GCM-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>dhparam 2048</td>
+</tr>
+<tr>
+<td>DHE-RSA-AES256-SHA256</td>
+<td>256</td>
+<td>Yes</td>
+<td>dhparam 2048</td>
+</tr>
+<tr>
+<td>DHE-RSA-AES256-SHA</td>
+<td>256</td>
+<td>Yes</td>
+<td>dhparam 2048</td>
+</tr>
+<tr>
+<td>DHE-RSA-AES128-GCM-SHA256</td>
+<td>128</td>
+<td>Yes</td>
+<td>dhparam 2048</td>
+</tr>
+<tr>
+<td>DHE-RSA-AES128-SHA256</td>
+<td>128</td>
+<td>Yes</td>
+<td>dhparam 2048</td>
+</tr>
+<tr>
+<td>DHE-RSA-AES128-SHA</td>
+<td>128</td>
+<td>Yes</td>
+<td>dhparam 2048</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES256-GCM-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES256-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES256-SHA</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES128-GCM-SHA256</td>
+<td>128</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES128-SHA256</td>
+<td>128</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES128-SHA</td>
+<td>128</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>AES256-GCM-SHA384</td>
+<td>128</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>AES256-SHA256</td>
+<td>256</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td>AES256-SHA</td>
+<td>256</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td>AES128-GCM-SHA256</td>
+<td>128</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td>AES128-SHA256</td>
+<td>128</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr>
+<td>AES128-SHA</td>
+<td>128</td>
+<td>No</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+
+<p><strong>Protocols supported</strong>: TLSv1 TLSv1.1 TLSv1.2  </p>
+
+<p>IM Observatory hda.me <a href="https://www.ssllabs.com/ssltest/analyze.html?d=hda.me&amp;latest">report</a><br>
+IM Observatory <a href="http://www.hda.me">www.hda.me</a> <a href="https://www.ssllabs.com/ssltest/analyze.html?d=hda.me&amp;latest">report</a></p>
+
+<h4>
+<a id="privacy-policy" class="anchor" href="#privacy-policy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Privacy Policy</h4>
+
+<p><a href="">Privacy Policy</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/cryptofuture">cryptofuture</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
