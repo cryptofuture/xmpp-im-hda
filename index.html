@@ -15,9 +15,6 @@
     <link rel="stylesheet" href="stylesheets/github-light.css">
     <link rel="shortcut icon" href="stylesheets/favicon.png">
     <link rel="canonical" href="https://im.hda.me/">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
   <body>
       <section>
@@ -66,11 +63,31 @@ Overall: I recommend use first server, but if you have problem with communicatio
 <td>curve: sect571k1</td>
 </tr>
 <tr>
-<td>ECDHE-RSA-AES256-SHA</td>
+<td>ECDHE-RSA-CHACHA20-POLY1305</td>
 <td>256</td>
 <td>Yes</td>
 <td>curve: sect571k1</td>
 </tr>
+<tr>
+<td>ECDHE-RSA-CHACHA20-POLY1305</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<tr>
+<td>ECDHE-ECDSA-AES256-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES256-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
 <tr>
 <td>DHE-RSA-AES256-GCM-SHA384</td>
 <td>256</td>
@@ -79,12 +96,6 @@ Overall: I recommend use first server, but if you have problem with communicatio
 </tr>
 <tr>
 <td>DHE-RSA-AES256-SHA256</td>
-<td>256</td>
-<td>Yes</td>
-<td>dhparam 4096</td>
-</tr>
-<tr>
-<td>DHE-RSA-AES256-SHA</td>
 <td>256</td>
 <td>Yes</td>
 <td>dhparam 4096</td>
@@ -297,8 +308,6 @@ sudo apt-get install pidgin
   <p>You need configure proxy with tor, e.g. <a href="https://www.privoxy.org/faq/misc.html#TOR">privoxy</a>, if you want use HDA IM through tor.</p>
 </blockquote>
       </section>
-    </div>
     <script src="javascripts/scale.fix.js"></script>
-    
   </body>
 </html>
