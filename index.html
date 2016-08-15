@@ -29,7 +29,7 @@
 This means all contacts you add on hda.me or www.hda.me will be shared between servers and you can login using the same user credentials.</p>
 
 <p>First server use 4096 bit dhparam and support only strong ciphers with Forward Secrecy. Second server use 2048 bit dhparam, FS and strong ciphers still preferable, but this server can communicate without FS, but with strong enough ciphers, and this makes second server s2s (server-to-server) compatible  with 90%+ xmmp servers in internet.
-Overall: I recommend use first server, but if you have problem with communication with 3rd party xmmp server, you can use second one.</p>
+Overall: I recommend you to use first server, but if you have problem with communication with 3rd party xmmp server, you can use second one.</p>
 
 <blockquote>
 <p>Note: Really old clients (no SSLv3 or SSLv2 support on both servers) or some java clients (old java incompatible with DH parameters larger than 1024 bits) may not work with HDA XMMP server.</p>
@@ -39,6 +39,73 @@ Overall: I recommend use first server, but if you have problem with communicatio
 <a id="technical-information" class="anchor" href="#technical-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Technical information</h3>
 
 <p><strong>hda.me</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Cipher suites</th>
+<th>Bitsize</th>
+<th>Forward secrecy</th>
+<th>Curve/dhparam size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECDHE-RSA-AES256-GCM-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES256-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-ECDSA-CHACHA20-POLY1305</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-CHACHA20-POLY1305</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<tr>
+<td>ECDHE-ECDSA-AES256-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-RSA-AES256-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<tr>
+<td>DHE-RSA-AES256-GCM-SHA384</td>
+<td>256</td>
+<td>Yes</td>
+<td>dhparam 4096</td>
+</tr>
+<tr>
+<td>DHE-RSA-AES256-SHA256</td>
+<td>256</td>
+<td>Yes</td>
+<td>dhparam 4096</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Protocols supported</strong>: TLSv1.1 TLSv1.2  </p>
+
+<p><strong>www.hda.me</strong></p>
 
 <table>
 <thead>
@@ -100,79 +167,20 @@ Overall: I recommend use first server, but if you have problem with communicatio
 <td>Yes</td>
 <td>dhparam 4096</td>
 </tr>
-</tbody>
-</table>
-
-<p><strong>Protocols supported</strong>: TLSv1.1 TLSv1.2  </p>
-
-<p><strong>www.hda.me</strong></p>
-
-<table>
-<thead>
 <tr>
-<th>Cipher suites</th>
-<th>Bitsize</th>
-<th>Forward secrecy</th>
-<th>Curve/dhparam size</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DHE-RSA-AES256-GCM-SHA384</td>
-<td>256</td>
-<td>Yes</td>
-<td>dhparam 2048</td>
-</tr>
-<tr>
-<td>DHE-RSA-AES256-SHA256</td>
-<td>256</td>
-<td>Yes</td>
-<td>dhparam 2048</td>
-</tr>
-<tr>
-<td>DHE-RSA-AES256-SHA</td>
-<td>256</td>
-<td>Yes</td>
-<td>dhparam 2048</td>
-</tr>
-<tr>
-<td>DHE-RSA-AES128-GCM-SHA256</td>
+<td>ECDHE-ECDSA-AES128-GCM-SHA256</td>
 <td>128</td>
-<td>Yes</td>
-<td>dhparam 2048</td>
-</tr>
-<tr>
-<td>DHE-RSA-AES128-SHA256</td>
-<td>128</td>
-<td>Yes</td>
-<td>dhparam 2048</td>
-</tr>
-<tr>
-<td>DHE-RSA-AES128-SHA</td>
-<td>128</td>
-<td>Yes</td>
-<td>dhparam 2048</td>
-</tr>
-<tr>
-<td>ECDHE-RSA-AES256-GCM-SHA384</td>
-<td>256</td>
-<td>Yes</td>
-<td>curve: sect571k1</td>
-</tr>
-<tr>
-<td>ECDHE-RSA-AES256-SHA384</td>
-<td>256</td>
-<td>Yes</td>
-<td>curve: sect571k1</td>
-</tr>
-<tr>
-<td>ECDHE-RSA-AES256-SHA</td>
-<td>256</td>
 <td>Yes</td>
 <td>curve: sect571k1</td>
 </tr>
 <tr>
 <td>ECDHE-RSA-AES128-GCM-SHA256</td>
+<td>128</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
+<td>ECDHE-ECDSA-AES128-SHA256</td>
 <td>128</td>
 <td>Yes</td>
 <td>curve: sect571k1</td>
@@ -184,19 +192,45 @@ Overall: I recommend use first server, but if you have problem with communicatio
 <td>curve: sect571k1</td>
 </tr>
 <tr>
+<tr>
+<td>DHE-RSA-AES128-GCM-SHA256</td>
+<td>128</td>
+<td>Yes</td>
+<td>dhparam 4096</td>
+</tr>
+<tr>
+<td>DHE-RSA-AES128-SHA256</td>
+<td>128</td>
+<td>Yes</td>
+<td>dhparam 4096</td>
+</tr>
+<tr>
+<tr>
+<td>ECDHE-RSA-AES256-SHA</td>
+<td>256</td>
+<td>Yes</td>
+<td>curve: sect571k1</td>
+</tr>
+<tr>
 <td>ECDHE-RSA-AES128-SHA</td>
 <td>128</td>
 <td>Yes</td>
 <td>curve: sect571k1</td>
 </tr>
 <tr>
-<td>AES256-GCM-SHA384</td>
-<td>128</td>
+<td>DHE-RSA-AES256-SHA</td>
+<td>256</td>
 <td>Yes</td>
-<td>curve: sect571k1</td>
+<td>dhparam 4096</td>
 </tr>
 <tr>
-<td>AES256-SHA256</td>
+<td>DHE-RSA-AES128-SHA</td>
+<td>256</td>
+<td>Yes</td>
+<td>dhparam 4096</td>
+</tr>
+<tr>
+<td>AES256-GCM-SHA384:AES128-GCM-SHA256</td>
 <td>256</td>
 <td>No</td>
 <td>-</td>
@@ -204,18 +238,6 @@ Overall: I recommend use first server, but if you have problem with communicatio
 <tr>
 <td>AES256-SHA</td>
 <td>256</td>
-<td>No</td>
-<td>-</td>
-</tr>
-<tr>
-<td>AES128-GCM-SHA256</td>
-<td>128</td>
-<td>No</td>
-<td>-</td>
-</tr>
-<tr>
-<td>AES128-SHA256</td>
-<td>128</td>
 <td>No</td>
 <td>-</td>
 </tr>
@@ -230,10 +252,10 @@ Overall: I recommend use first server, but if you have problem with communicatio
 </li>
 </ol>
 
-<p><strong>Protocols supported</strong>: TLSv1 TLSv1.1 TLSv1.2  </p>
+<p><strong>Protocols supported</strong>: TLSv1 TLSv1.1 TLSv1.2</p>
 
-<p>IM Observatory hda.me <a href="https://www.ssllabs.com/ssltest/analyze.html?d=hda.me&amp;latest">report</a><br>
-IM Observatory www.hda.me <a href="https://www.ssllabs.com/ssltest/analyze.html?d=hda.me&amp;latest">report</a></p>
+<p>IM Observatory hda.me <a href="https://xmpp.net/result.php?domain=hda.me&type=client">report</a><br>
+IM Observatory www.hda.me <a href="https://xmpp.net/result.php?domain=www.hda.me&type=client">report</a></p>
 
 <h3 id="how-to-connect-to-hda-im">How to connect to HDA IM?</h3>
 
@@ -282,13 +304,13 @@ sudo apt-get install pidgin
 
 <ul>
   <li>
-    <p>I don’t and can’t collect any communication information like chats and messages.</p>
+    <p>We don’t and can’t collect any communication information like chats and messages.</p>
   </li>
   <li>
-    <p>I never and will never share information with any 3rd party, except court ordered legal requests. (I don’t expect any because there is nothing useful to give)</p>
+    <p>We never and will never share information with any 3rd party, except court ordered legal requests. (We don’t expect any because there is nothing useful to give)</p>
   </li>
   <li>
-    <p>I don’t store jabber server logs.<br />
+    <p>We don’t store jabber server logs.<br />
 (Is not possible to share any information about time, server and contacts you been communicating with)</p>
   </li>
   <li>
@@ -301,11 +323,11 @@ sudo apt-get install pidgin
 </ul>
 
 <blockquote>
-  <p>If you need extra anonymity I recommend you use <a href="https://www.torproject.org/">tor</a> if you visiting <a href="https://im.hda.me/">im.hda.me</a> website or using xmmp client.</p>
+  <p>If you need extra anonymity we recommend you use <a href="https://www.torproject.org/">tor</a> if you visiting <a href="https://im.hda.me/">im.hda.me</a> website or using xmmp client.</p>
 </blockquote>
 
 <blockquote>
-  <p>You need configure proxy with tor, e.g. <a href="https://www.privoxy.org/faq/misc.html#TOR">privoxy</a>, if you want use HDA IM through tor.</p>
+  <p>You can use xmpp.hda.me domain with tor, that way you will bypass dns, or you can configure proxy with tor, e.g. <a href="https://www.privoxy.org/faq/misc.html#TOR">privoxy</a>.</p>
 </blockquote>
       </section>
     <script src="javascripts/scale.fix.js"></script>
